@@ -627,6 +627,7 @@ class Youtube
             curl_setopt($tuCurl, CURLOPT_CAINFO, __DIR__ . '/cert/cacert.pem');
             curl_setopt($tuCurl, CURLOPT_CAPATH, __DIR__ . '/cert/cacert.pem');
         }
+        curl_setopt($tuCurl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($tuCurl, CURLOPT_URL, $url . (strpos($url, '?') === false ? '?' : '') . http_build_query($params));
         if ($this->referer !== null) {
             curl_setopt($tuCurl, CURLOPT_REFERER, $this->referer);
